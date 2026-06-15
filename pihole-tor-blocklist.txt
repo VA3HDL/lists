@@ -1,10 +1,13 @@
-# Pi-hole Blocklist: Tor Bypass Prevention
-# Purpose: Block domains used by Brave and other browsers to bypass Tor port blocking
+# Pi-hole Blocklist: Security Blocklist
+# Purpose: Block Tor infrastructure, paste services, and exfiltration endpoints
 # Usage: Add this URL to Pi-hole → Adlists, then run Update Gravity
 # Created: 2026-06-15
+# Updated: 2026-06-15 — Added paste/exfiltration services
 # 
-# This blocklist targets DNS resolution of Tor infrastructure,
-# preventing browsers from obtaining bridge IPs and relay addresses.
+# This blocklist targets:
+# 1. Tor infrastructure (DNS sinkholing)
+# 2. Paste services used for data exfiltration
+# 3. Known malware C2/upload endpoints
 #
 # WARNING: Some STUN servers affect WebRTC (video calls).
 # Remove STUN entries if Google Meet/Zoom/Discord break.
@@ -36,3 +39,22 @@ stun.telnyx.com
 stun.hot-chilli.net
 stun.fitauto.ru
 stun.m-online.net
+
+# ─── Paste/Upload Services (Exfiltration) ─────────────────────────────────────
+# Used by malware to upload stolen data (e.g., deps AUR malware)
+temp.sh
+0x0.st
+paste.ee
+paste.rs
+dpaste.org
+hastebin.com
+ix.io
+pastebin.com
+pastie.org
+paste.diiz.dev
+dpaste.org
+rentry.co
+telegra.ph
+catbox.moe
+litterbox.catbox.moe
+neocities.org
