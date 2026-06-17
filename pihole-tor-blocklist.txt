@@ -1,8 +1,8 @@
 # Pi-hole Blocklist: Security Blocklist
 # Purpose: Block Tor infrastructure, paste services, and exfiltration endpoints
-# Usage: Add this URL to Pi-hole → Adlists, then run Update Gravity
+# Usage: Add this URL to Pi-hole Adlists, then run Update Gravity
 # Created: 2026-06-15
-# Updated: 2026-06-15 — Added paste/exfiltration services
+# Updated: 2026-06-15 Added paste/exfiltration services
 # 
 # This blocklist targets:
 # 1. Tor infrastructure (DNS sinkholing)
@@ -12,7 +12,7 @@
 # WARNING: Some STUN servers affect WebRTC (video calls).
 # Remove STUN entries if Google Meet/Zoom/Discord break.
 
-# ─── Tor Project Infrastructure ───────────────────────────────────────────────
+# Tor Project Infrastructure
 # Primary Tor Project domains
 torproject.org
 check.torproject.org
@@ -20,13 +20,13 @@ onionrouter.net
 bridges.torproject.org
 bridges.torproject.org.in
 
-# ─── Snowflake CDN Domains ────────────────────────────────────────────────────
+# Snowflake CDN Domains
 # Snowflake uses these CDNs to relay traffic through WebRTC
 1098762253.rsc.cdn77.org
 cdn.zk.mk
 
-# ─── Snowflake STUN Servers ───────────────────────────────────────────────────
-# Used by WebRTC for NAT traversal — Snowflake relies on these
+# Snowflake STUN Servers
+# Used by WebRTC for NAT traversal Snowflake relies on these
 # ⚠️ May affect video calls if blocked
 stun.nextcloud.com
 stun.bethesda.net
@@ -40,7 +40,7 @@ stun.hot-chilli.net
 stun.fitauto.ru
 stun.m-online.net
 
-# ─── Paste/Upload Services (Exfiltration) ─────────────────────────────────────
+# Paste/Upload Services (Exfiltration)
 # Used by malware to upload stolen data (e.g., deps AUR malware)
 temp.sh
 0x0.st
@@ -58,3 +58,11 @@ telegra.ph
 catbox.moe
 litterbox.catbox.moe
 neocities.org
+
+# Brave Browser Analytics Endpoints - from The PC Security Channel Wireshark investigation
+star-randsrv.bsg.brave.com
+collector.bsg.brave.com
+go-updater.brave.com
+componentupdater.brave.com
+redirector.brave.com
+updates.bravesoftware.com
